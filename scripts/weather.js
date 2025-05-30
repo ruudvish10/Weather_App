@@ -94,7 +94,7 @@ function showForecast(forecastList) {
         forecastContainer.style.display = "block";
         forecastContainer.innerHTML = `
         <div class="error-message">
-            <p>⚠️ Forecast data unavailable for this location. Please try another city.</p>
+            <p>⚠️ Weather & Forecast data unavailable for this location. Please try another city.</p>
         </div>
         `;
         return;
