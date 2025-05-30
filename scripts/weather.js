@@ -42,6 +42,12 @@ async function getWeather(city){
 
 //The actual DOM update function
 function updateDOM(data) {
+    try{
+        //Validate if data exits before destructuring
+        if (!data?.main || !data.weather?.[0] || !data.wind || !data.name) {
+            throw new Error("Location not found or invalid entry!");
+        }
+
     //Destructure common properties from the object and/or nested objects
     const {name, main, weather, wind} = data;
     const {temp, feels_like, temp_min, temp_max} = main;
@@ -66,6 +72,16 @@ function updateDOM(data) {
         </div>
         `
          ;
+    } catch(error) {
+        console.error(error.message);
+
+        //Show a user-friendly message in the UI
+        weatherDiv.innerHTML = `
+        <div class="error-message>
+            <p>${error.message}</p>
+        </div>
+        `;
+    }
 }
 
 //Forecast function 5-day 
