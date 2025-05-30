@@ -88,9 +88,21 @@ function updateDOM(data) {
 function showForecast(forecastList) {
     const forecastContainer = document.getElementById("forecast-container");
     if(!forecastContainer) return;                          //Safety check
+    
+    //Check if forecastList is valid
+    if(!Array.isArray(forecastList) || forecastList === 0) {
+        forecastContainer.style.display = "block";
+        forecastContainer.innerHTML = `
+        <div class="error-message">
+            <p>⚠️ Forecast data unavailable for this location. Please try another city.</p>
+        </div>
+        `;
+        return;
+    }
+
     forecastContainer.style.display = "block";              //Show only when data is valid
 
-    //Get one midday forecast per day filtered by a 24 hr period. Assuming the weather API updates every 3 hrs (3x8 = 24)
+    //Filter one forecast per day (around 12PM)
     //Slice gives the first five forecasts
     const middayForecasts = forecastList.filter((_, index) => index % 8 === 4).slice(0, 5); 
 
