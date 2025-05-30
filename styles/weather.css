@@ -1,11 +1,104 @@
-/*CSS code */
+/* Main body */
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     margin: auto;
     padding: 5px;
-    background-color:lightslategray;
+    background-color: lightblue;
+    color: black;
 }
-#weather{
-    margin: auto;
-}    
+/* Weather attribute container (in HTML inside JS) */  
+.weather-attributes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));         
+    gap: 0.8rem;  
+    margin-top: 1rem;          
+    flex-wrap: wrap;       
+    justify-content: space-around;
+    align-items: center;
+  }
+ /* Weather container (HTML inside JS) */   
+.weather-container img {
+    width: 80px;
+    height: 80px;
+}
+/* Weather header container (HTML inside JS) */
+.weather-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+/* Main temp container (HTML inside JS) */   
+.main-temp {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+/* Search container (in HTML) */
+.search-container input {
+  display: flexbox;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+}
+/* City input "id" (in HTML) */
+#city-input {
+    flex: auto;
+    padding: 5px 10px;
+    font-size: medium;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* Search btn "id" (in HTML) */
+#search-btn {
+  background:blanchedalmond;
+  border: 1rem;
+  padding: 10 10px;
+  cursor: pointer;
+  font-size: medium;
+  margin: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+}
+
+/* Forecast Container (HTML inside JS) */
+.forecast-days {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  justify-content: center;
+  flex-wrap: wrap; 
+  margin: 0 auto;
+  max-width: 90%; 
+}
+
+/* Individual Day Box (HTML inside JS) */
+.day {
+  min-width: 80px;
+  text-align: center;
+  background-color: lightgrey;
+  padding: 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  font-size: medium;
+}
+
+/* Weather Icon (HTML inside JS) */
+.day img {
+  width: 50px;
+  height: 50px;
+  margin: 0.3rem 0;
+}
+
+/* Time Label (HTML inside JS) */
+.day small {
+  display: block;
+  color: black;
+  font-size: 0.8rem;
+}
